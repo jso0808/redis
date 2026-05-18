@@ -1,1 +1,6 @@
 rootProject.name = 'redis'
+
+include 'domain'
+include 'weather'
+include 'weather-public-data'
+include 'web'
