@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regional Weather Live Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="layout">
+    <header class="hero card">
+      <p class="eyebrow">KMA + REDIS LAB</p>
+      <h1>지역 날씨 실시간 캐시 + 지역 채팅</h1>
+      <p class="sub">공공데이터(기상청) 기반으로 캐시, 실시간 알림, 지역 커뮤니티를 함께 실습</p>
+    </header>
+
+    <section class="grid-two">
+      <article class="card">
+        <h2>날씨 API</h2>
+        <pre><code>GET /api/regions/11B00000/weather/current
+POST /api/regions/11B00000/weather/refresh</code></pre>
+        <p><code>weather:region:{regionCode}:current</code> 키로 TTL 캐시됩니다.</p>
+      </article>
+
+      <article class="card">
+        <h2>지역 채팅/접속</h2>
+        <pre><code>WS: /ws-chat
+SEND: /app/chat/11B00000
+SUBSCRIBE: /topic/chat/11B00000</code></pre>
+        <pre><code>POST /api/regions/11B00000/presence/join
+GET /api/regions/11B00000/presence/count</code></pre>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>공공데이터 추천</h2>
+      <ul>
+        <li><a href="https://www.data.go.kr/data/15084084/openapi.do" target="_blank" rel="noreferrer">기상청 단기예보 조회서비스</a></li>
+        <li><a href="https://www.data.go.kr" target="_blank" rel="noreferrer">공공데이터포털</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
